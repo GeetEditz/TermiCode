@@ -40,5 +40,5 @@ RUN chmod 777 /app/server/temp
 EXPOSE 3000
 
 # Start the server
-CMD ["node", "server/index.js"] 
+CMD ["npm", "start"]
  
