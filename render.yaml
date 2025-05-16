@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: code-editor-client
+    env: static
+    buildCommand: cd code-editor/client && npm install && npm run build
+    staticPublishPath: code-editor/client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: code-editor-server
+    env: node
+    buildCommand: cd code-editor/server && npm install
+    startCommand: cd code-editor/server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
