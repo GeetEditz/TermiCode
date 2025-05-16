@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 // @ts-ignore - Missing type declarations
@@ -31,8 +31,6 @@ interface CodeExecutionResponse {
 }
 
 const CodeEditor = () => {
-  const navigate = useNavigate();
-  
   const [code, setCode] = useLocalStorage('code-editor-code', DEFAULT_CODE);
   const [language, setLanguage] = useLocalStorage('code-editor-language', 'python');
   const [output, setOutput] = useState('');
