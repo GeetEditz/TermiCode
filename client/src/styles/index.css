@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90;
+  }
+
+  .container-fluid {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .code-editor {
+    @apply w-full h-[60vh] md:h-[70vh] rounded overflow-hidden border border-secondary dark:border-secondary focus:outline-none focus:ring-2 focus:ring-accent;
+  }
+
+  .terminal {
+    @apply w-full bg-primary text-white rounded p-4 overflow-auto font-mono text-sm h-[30vh] md:h-[40vh];
+  }
+  
+  .terminal input {
+    @apply caret-white text-white placeholder-gray-500 min-w-[200px];
+    animation: blink 1s step-end infinite;
+  }
+  
+  .terminal input:focus {
+    @apply outline-none;
+  }
+
+  @keyframes blink {
+    from, to {
+      @apply border-transparent;
+    }
+    50% {
+      @apply border-r-2 border-white;
+    }
+  }
+} 

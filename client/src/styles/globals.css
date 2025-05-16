@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styling */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow-y: auto;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Code editor styling */
+.code-container {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #30363d;
+  width: 100%;
+}
+
+.code-editor {
+  height: 350px !important;
+  overflow: hidden !important;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .code-editor {
+    height: 450px !important;
+  }
+}
+
+.code-editor .cm-editor {
+  height: 100%;
+  background-color: #0d1117 !important;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 0.25rem;
+}
+
+.code-editor .cm-scroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
+
+/* Enhance code syntax highlighting */
+.code-editor .cm-line {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.code-editor .cm-gutters {
+  border-right: 1px solid rgba(75, 85, 99, 0.3) !important;
+  background-color: #161b22 !important;
+}
+
+/* Terminal styling enhancements */
+.terminal {
+  background-color: #0d1117 !important; /* Darker background for terminal */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.terminal:hover {
+  box-shadow: 0 20px 50px rgba(8, 112, 184, 0.35) !important;
+}
+
+/* macOS window buttons hover effect */
+.rounded-full {
+  transition: all 0.2s ease;
+}
+
+.rounded-full:hover {
+  transform: scale(1.1);
+}
+
+/* Add glass effect to certain UI elements */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button animations and effects */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Modern animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Improved line numbers */
+.code-editor .cm-lineNumbers .cm-gutterElement {
+  padding: 0 0.5rem 0 0.75rem !important;
+  color: rgba(156, 163, 175, 0.6) !important;
+}
+
+/* Width adjustments for screens */
+@media (max-width: 640px) {
+  .max-w-7xl {
+    max-width: 100% !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .max-w-7xl {
+    max-width: 95vw !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .max-w-7xl {
+    max-width: 90vw !important;
+  }
+} 
