@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+// Use the environment variable with proper path construction
+const API_URL = import.meta.env.VITE_API_URL || '';
+const API_PATH = '/api';
 
 export type CodeExecutionRequest = {
   code?: string;
@@ -22,7 +24,9 @@ export const executeCode = async (
   data: CodeExecutionRequest
 ): Promise<CodeExecutionResponse> => {
   try {
-    const response = await axios.post(`${API_URL}/execute`, data);
+    // Construct the URL properly based on whether we have a base URL
+    const url = API_URL ? `${API_URL}${API_PATH}/execute` : `${API_PATH}/execute`;
+    const response = await axios.post(url, data);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {

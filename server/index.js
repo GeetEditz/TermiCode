@@ -17,7 +17,12 @@ const PORT = process.env.PORT || 3000;
 const docker = new Docker();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://code-editor-client-production.up.railway.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // In-memory storage for active code execution sessions
